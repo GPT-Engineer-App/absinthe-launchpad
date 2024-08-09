@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { toast } from "@/components/ui/use-toast"
-import { Bottle, Leaf, Truck } from "lucide-react"
+import { Wine, Leaf, Truck } from "lucide-react"
 
 const Index = () => {
   const [email, setEmail] = useState('');
@@ -26,7 +26,7 @@ const Index = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <Bottle className="h-12 w-12 mx-auto mb-4 text-emerald-600" />
+            <Wine className="h-12 w-12 mx-auto mb-4 text-emerald-600" />
             <h2 className="text-lg font-semibold mb-2">Curated Selection</h2>
             <p className="text-gray-600">Handpicked absinthe varieties from around the world.</p>
           </div>
