@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { toast } from "@/components/ui/use-toast"
-import { Wine, Leaf, Truck } from "lucide-react"
-
 const Index = () => {
   const [email, setEmail] = useState('');
 
@@ -26,17 +24,17 @@ const Index = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <Wine className="h-12 w-12 mx-auto mb-4 text-emerald-600" />
+            <img src="/placeholder.svg" alt="Curated selection of absinthe bottles" className="mx-auto object-cover w-full h-48 mb-4 rounded-md" />
             <h2 className="text-lg font-semibold mb-2">Curated Selection</h2>
             <p className="text-gray-600">Handpicked absinthe varieties from around the world.</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <Leaf className="h-12 w-12 mx-auto mb-4 text-emerald-600" />
+            <img src="/placeholder.svg" alt="Fresh wormwood and herbs" className="mx-auto object-cover w-full h-48 mb-4 rounded-md" />
             <h2 className="text-lg font-semibold mb-2">Authentic Ingredients</h2>
             <p className="text-gray-600">Made with real wormwood and traditional herbs.</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <Truck className="h-12 w-12 mx-auto mb-4 text-emerald-600" />
+            <img src="/placeholder.svg" alt="Absinthe delivery package" className="mx-auto object-cover w-full h-48 mb-4 rounded-md" />
             <h2 className="text-lg font-semibold mb-2">Monthly Delivery</h2>
             <p className="text-gray-600">Fresh bottles delivered to your doorstep every month.</p>
           </div>
