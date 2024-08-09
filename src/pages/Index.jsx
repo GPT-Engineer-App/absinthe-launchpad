@@ -1,20 +1,36 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { toast } from "@/components/ui/use-toast"
+import { Download } from "lucide-react"
+
 const Index = () => {
   const [email, setEmail] = useState('');
+  const [submittedEmails, setSubmittedEmails] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send the email to your backend
-    console.log('Email submitted:', email);
+    const newSubmission = { email, timestamp: new Date().toISOString() };
+    setSubmittedEmails([...submittedEmails, newSubmission]);
     toast({
       title: "Subscribed!",
       description: "You'll be notified when we launch.",
     })
     setEmail('');
   };
+
+  const downloadCSV = useCallback(() => {
+    const csvContent = "data:text/csv;charset=utf-8," 
+      + "Email,Timestamp\n"
+      + submittedEmails.map(row => `${row.email},${row.timestamp}`).join("\n");
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "submitted_emails.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }, [submittedEmails]);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-emerald-50 p-4">
@@ -40,9 +56,9 @@ const Index = () => {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-4">
           <h2 className="text-2xl font-semibold text-emerald-800 mb-2">Be the first to know when we launch!</h2>
-          <div className="flex w-full max-w-sm items-center space-x-2">
+          <form onSubmit={handleSubmit} className="flex w-full max-w-sm items-center space-x-2">
             <Input
               type="email"
               placeholder="Enter your email"
@@ -52,8 +68,11 @@ const Index = () => {
               className="flex-grow"
             />
             <Button type="submit">Subscribe</Button>
-          </div>
-        </form>
+          </form>
+          <Button onClick={downloadCSV} variant="outline" className="mt-4">
+            <Download className="mr-2 h-4 w-4" /> Download Emails
+          </Button>
+        </div>
       </div>
     </div>
   );
