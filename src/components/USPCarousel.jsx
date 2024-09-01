@@ -71,13 +71,13 @@ const USPCarousel = () => {
       </AnimatePresence>
       <Button
         onClick={handlePrev}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white text-emerald-800 hover:bg-emerald-100"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white text-emerald-800 hover:bg-emerald-100 z-20"
       >
         <ChevronLeft className="h-6 w-6" />
       </Button>
       <Button
         onClick={handleNext}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white text-emerald-800 hover:bg-emerald-100"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white text-emerald-800 hover:bg-emerald-100 z-20"
       >
         <ChevronRight className="h-6 w-6" />
       </Button>
