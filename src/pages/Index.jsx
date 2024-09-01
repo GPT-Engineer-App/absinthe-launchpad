@@ -91,22 +91,25 @@ const Index = () => {
           </div>
         </div>
 
-        <section className="mb-16 bg-emerald-100 p-8 rounded-lg shadow-md">
-          <h2 className="text-3xl font-semibold text-emerald-800 mb-4">Our Premium Absinthe Selection</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { name: "Green Fairy", description: "Classic absinthe with a smooth, herbal flavor." },
-              { name: "Midnight Muse", description: "Dark and mysterious, with notes of star anise and fennel." },
-              { name: "Emerald Dream", description: "A balanced blend of wormwood and melissa, perfect for beginners." },
-            ].map((product, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold text-emerald-700 mb-2">{product.name}</h3>
-                <p className="text-emerald-600 mb-4">{product.description}</p>
-                <Button variant="outline" className="text-emerald-600 border-emerald-600 hover:bg-emerald-50">
-                  Learn More
-                </Button>
-              </div>
-            ))}
+        <section className="mb-16 bg-cover bg-center p-8 rounded-lg shadow-md relative overflow-hidden" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1562601579-599dec564e06?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY4NjY3NDc5Mg&ixlib=rb-4.0.3&q=80&w=1080')" }}>
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <div className="relative z-10">
+            <h2 className="text-3xl font-semibold text-white mb-4">Our Premium Absinthe Selection</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                { name: "Green Fairy", description: "Classic absinthe with a smooth, herbal flavor." },
+                { name: "Midnight Muse", description: "Dark and mysterious, with notes of star anise and fennel." },
+                { name: "Emerald Dream", description: "A balanced blend of wormwood and melissa, perfect for beginners." },
+              ].map((product, index) => (
+                <div key={index} className="bg-white bg-opacity-80 p-6 rounded-lg shadow-sm backdrop-filter backdrop-blur-sm">
+                  <h3 className="text-xl font-semibold text-emerald-800 mb-2">{product.name}</h3>
+                  <p className="text-emerald-700 mb-4">{product.description}</p>
+                  <Button variant="outline" className="text-emerald-700 border-emerald-700 hover:bg-emerald-100 hover:text-emerald-800">
+                    Learn More
+                  </Button>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
