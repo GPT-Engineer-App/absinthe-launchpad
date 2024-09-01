@@ -63,7 +63,7 @@ const Index = () => {
               <div key={index} className="relative bg-white p-6 rounded-lg shadow-md overflow-hidden">
                 <div 
                   className="absolute inset-0 bg-cover bg-center z-0 opacity-50" 
-                  style={{ backgroundImage: `url(${item.bgImage})` }}
+                  style={{ backgroundImage: `url(${index === 2 ? 'https://images.unsplash.com/photo-1620219365994-f443a86a5c9c' : item.bgImage})` }}
                 ></div>
                 <div className="relative z-10">
                   <div className="text-4xl font-bold text-emerald-600 mb-2">{item.value}</div>
