@@ -41,7 +41,7 @@ const USPCarousel = () => {
   };
 
   return (
-    <div className="relative w-full h-[500px] bg-emerald-100 overflow-hidden">
+    <div className="relative w-full h-[700px] bg-emerald-100 overflow-hidden">
       <AnimatePresence initial={false} custom={currentIndex}>
         <motion.div
           key={currentIndex}
@@ -60,9 +60,9 @@ const USPCarousel = () => {
           <div className="absolute inset-0 bg-gradient-to-l from-black/50 to-transparent"></div>
           <div className="relative z-10 flex items-center justify-end w-full max-w-6xl px-4">
             <div className="w-1/2 pl-8 text-white">
-              <h2 className="text-4xl font-bold mb-4">{uspData[currentIndex].title}</h2>
-              <p className="text-lg mb-6">{uspData[currentIndex].description}</p>
-              <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">
+              <h2 className="text-5xl font-bold mb-6">{uspData[currentIndex].title}</h2>
+              <p className="text-xl mb-8 leading-relaxed">{uspData[currentIndex].description}</p>
+              <Button className="bg-emerald-600 hover:bg-emerald-700 text-white text-lg py-3 px-8">
                 Learn More
               </Button>
             </div>
@@ -73,13 +73,13 @@ const USPCarousel = () => {
         onClick={handlePrev}
         className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white text-emerald-800 hover:bg-emerald-100 z-20"
       >
-        <ChevronLeft className="h-6 w-6" />
+        <ChevronLeft className="h-8 w-8" />
       </Button>
       <Button
         onClick={handleNext}
         className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white text-emerald-800 hover:bg-emerald-100 z-20"
       >
-        <ChevronRight className="h-6 w-6" />
+        <ChevronRight className="h-8 w-8" />
       </Button>
     </div>
   );

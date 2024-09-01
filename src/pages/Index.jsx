@@ -51,11 +51,7 @@ const Index = () => {
       </header>
 
       <main className="flex-grow">
-        <section className="text-center mb-20 pt-16">
-          <h2 className="text-5xl font-bold mb-6 text-emerald-800 leading-tight">Experience the Mystique of Absinthe</h2>
-          <p className="text-2xl text-emerald-600 mb-10 max-w-3xl mx-auto leading-relaxed">Delivered to your door, curated for connoisseurs.</p>
-          <USPCarousel />
-        </section>
+        <USPCarousel />
 
         <div className="container mx-auto px-6 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
