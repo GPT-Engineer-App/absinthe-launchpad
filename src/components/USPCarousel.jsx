@@ -51,18 +51,17 @@ const USPCarousel = () => {
           exit={{ opacity: 0, x: -300 }}
           transition={{ duration: 0.5 }}
           className="absolute inset-0 flex items-center justify-center"
+          style={{
+            backgroundImage: `url(${uspData[currentIndex].image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
         >
-          <div className="flex items-center justify-between w-full max-w-6xl px-4">
-            <div className="w-1/2">
-              <img
-                src={uspData[currentIndex].image}
-                alt={uspData[currentIndex].title}
-                className="w-full h-auto rounded-lg shadow-lg"
-              />
-            </div>
-            <div className="w-1/2 pl-8">
-              <h2 className="text-4xl font-bold text-emerald-800 mb-4">{uspData[currentIndex].title}</h2>
-              <p className="text-lg text-emerald-600 mb-6">{uspData[currentIndex].description}</p>
+          <div className="absolute inset-0 bg-gradient-to-l from-black/50 to-transparent"></div>
+          <div className="relative z-10 flex items-center justify-end w-full max-w-6xl px-4">
+            <div className="w-1/2 pl-8 text-white">
+              <h2 className="text-4xl font-bold mb-4">{uspData[currentIndex].title}</h2>
+              <p className="text-lg mb-6">{uspData[currentIndex].description}</p>
               <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">
                 Learn More
               </Button>
