@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { toast } from "@/components/ui/use-toast"
-import { Download, ArrowRight, Leaf, Droplet, Sparkles } from "lucide-react"
+import { Download, ArrowRight } from "lucide-react"
 
 const Index = () => {
   const [email, setEmail] = useState('');
@@ -33,11 +33,10 @@ const Index = () => {
   }, [submittedEmails]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-emerald-50 to-emerald-100">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-emerald-50 to-emerald-100 font-montserrat">
       <header className="bg-emerald-800 text-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-2">
-            <Leaf className="h-8 w-8 text-emerald-400" />
             <h1 className="text-3xl font-bold">Absinthe Bliss</h1>
           </div>
           <nav>
@@ -56,15 +55,20 @@ const Index = () => {
           <p className="text-xl text-emerald-600 mb-8">Delivered to your door, curated for connoisseurs.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {[
-              { icon: <Droplet className="h-12 w-12 text-emerald-500 mb-4" />, value: "$130M+", label: "Processed since 2018" },
-              { icon: <Sparkles className="h-12 w-12 text-emerald-500 mb-4" />, value: "7K+", label: "Absinthe Bliss users" },
-              { icon: <Leaf className="h-12 w-12 text-emerald-500 mb-4" />, value: "80+", label: "Absinthe varieties" },
-              { icon: <ArrowRight className="h-12 w-12 text-emerald-500 mb-4" />, value: "200+", label: "Available jurisdictions" },
+              { bgImage: "https://images.unsplash.com/photo-1605270012917-bf157c5a9541", value: "$130M+", label: "Processed since 2018" },
+              { bgImage: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd", value: "7K+", label: "Absinthe Bliss users" },
+              { bgImage: "https://images.unsplash.com/photo-1605265036253-e1b3e0fcec41", value: "80+", label: "Absinthe varieties" },
+              { bgImage: "https://images.unsplash.com/photo-1543076447-215ad9ba6923", value: "200+", label: "Available jurisdictions" },
             ].map((item, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                {item.icon}
-                <div className="text-4xl font-bold text-emerald-600 mb-2">{item.value}</div>
-                <div className="text-emerald-700">{item.label}</div>
+              <div key={index} className="relative bg-white p-6 rounded-lg shadow-md overflow-hidden">
+                <div 
+                  className="absolute inset-0 bg-cover bg-center z-0 opacity-50" 
+                  style={{ backgroundImage: `url(${item.bgImage})` }}
+                ></div>
+                <div className="relative z-10">
+                  <div className="text-4xl font-bold text-emerald-600 mb-2">{item.value}</div>
+                  <div className="text-emerald-700">{item.label}</div>
+                </div>
               </div>
             ))}
           </div>
